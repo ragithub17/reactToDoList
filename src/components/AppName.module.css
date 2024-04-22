@@ -1,0 +1,33 @@
+.todoHeading{
+  font-weight: bolder;
+  font-size: 45px;
+  margin: 10px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+
+.divs {
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  color: #333;
+  cursor: pointer;
+}
+
+.divs:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
