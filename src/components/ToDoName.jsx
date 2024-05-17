@@ -1,24 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./ToDoName.module.css";
 import { MdAddBox } from "react-icons/md";
 
 function ToDoName({ onNewItem }) {
-  const [itemsName, setItemsname] = useState("");
-  const [itemsDate, setItemsDate] = useState("");
-
-  const handleNameOnChange = (event) => {
-    setItemsname(event.target.value);
-  };
-
-  const handleDateOnChange = (event) => {
-    setItemsDate(event.target.value);
-  };
+  const toDoElementName = useRef();
+  const toDoElementDate = useRef();
 
   const handleOnAddButton = (event) => {
     event.preventDefault();
+    const itemsName = toDoElementName.current.value;
+    const itemsDate = toDoElementDate.current.value;
+    toDoElementName.current.value = "";
+    toDoElementDate.current.valu = "";
     onNewItem(itemsName, itemsDate);
-    setItemsname("");
-    setItemsDate("");
   };
 
   return (
@@ -28,18 +22,12 @@ function ToDoName({ onNewItem }) {
           <input
             className={styles.todo}
             type="text"
+            ref={toDoElementName}
             placeholder="Enter Todo Here"
-            value={itemsName}
-            onChange={handleNameOnChange}
           />
         </div>
         <div className="col-4">
-          <input
-            className={styles.todo}
-            type="date"
-            value={itemsDate}
-            onChange={handleDateOnChange}
-          />
+          <input className={styles.todo} type="date" ref={toDoElementDate} />
         </div>
         <div className="col-2">
           <button type="submit" className="btn btn-success kg-button">

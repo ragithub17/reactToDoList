@@ -9,9 +9,15 @@ import Error from "./components/Error";
 function App() {
   const [todoItems, setItems] = useState([]);
 
+  // const handleNewItem = (itemName, itemDate) => {
+  //   setItems((currValue) => {
+  //     const NewItemsTodo = [...currValue, { name: itemName, date: itemDate }];
+  //     return NewItemsTodo;
+  //   });
+  // };
+
   const handleNewItem = (itemName, itemDate) => {
-    const NewItemsTodo = [...todoItems, { name: itemName, date: itemDate }];
-    setItems(NewItemsTodo);
+    setItems((currValue) => [...currValue, { name: itemName, date: itemDate }]);
   };
 
   const handleOnDelete = (ItemName) => {
